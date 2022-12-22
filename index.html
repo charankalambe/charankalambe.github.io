@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registration Form</title>
+	<title>Sign Up</title>
 	<style type="text/css">
 		body{
 			background: #f4c4f3;  /* fallback for old browsers */
@@ -13,7 +13,7 @@
 			left: 600px;
 			top: 600px
 			width: 0px;
-			height: 431px;
+			height: 430px;
 			border: 5px solid #000;
 			border-radius-bottom: 15px;
 			box-shadow: 0px 0px 15px #000;
@@ -50,6 +50,8 @@
 			var name = document.getElementById("name");
 			var gender = document.getElementsByName("gender");
 			var username = document.getElementById("username");
+			var mobilen = document.getElementById("mnumber")
+			var emailc = document.getElementById("mnumber")
 			var pass = document.getElementById("pass");
 			var msg = new Array();
 			var flag = 1;
@@ -73,17 +75,22 @@
 				flag = 0 ;
 			}	else {msg[2] == "";}
 
+			if (mobilen.value == "") {
+				msg[3] = "Mobile No. is Required";
+				flag = 0 ;
+			}
+
 			if(pass.value == "")
 			{
-				msg[3] = " Password is Required";
+				msg[6] = " Password is Required";
 				flag = 0 ;
-			}	else {msg[3] == "";}
+			}	else {msg[6] == "";}
 
 			if(pass.value.length < 8)
 			{ 
-				msg[4] = " Password must be 8 character long ";
+				msg[7] = " Password must be 8 character long ";
 			    flag = 0 ;
-			 } else { msg[4] = "";}
+			 } else { msg[7] = "";}
 
 			 if(flag == 0)
 			 {
@@ -111,9 +118,9 @@
 </head>
 <body>
 <div class="giv">
-	<h1>Registration Form</h1>
+	<h1>Account Sign Up Form</h1>
 	<form method="post" action="" onsubmit="return verify()">
-		<table border="2" cellspacing="5" cellpadding="10"> 
+		<table border="0" cellspacing="5" cellpadding="10"> 
 			<tr>
 				<td colspan="2" align="center">*All field are mendatary*</td>
 			</tr>
@@ -132,8 +139,12 @@
 		    	<td><input type="text" name="username" id="username" size="25" placeholder="Enter Username"/></td>
 		    </tr>
 		    <tr>
+		    	<td>Mobile No: :</td>
+		    	<td><input type="text" name="username" id="mnumber" placeholder="Enter Mobile No:"/></td>
+		    </tr>
+		    <tr>
 		    	<td>Password:</td>
-		    	<td><input type="password" name="password" size="25" id="pass" placeholder="Enter Password"/>
+		    	<td><input type="password" name="password" id="pass" placeholder="Enter Password"/>
 		    	</td>
 		    </tr>
 		    <tr>
